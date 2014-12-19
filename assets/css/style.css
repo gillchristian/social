@@ -1,0 +1,42 @@
+/* GENERAL */
+
+.content {
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 15px;
+
+}
+/* NAVBAR */
+
+.navbar {
+	padding-right: 15px;
+	padding-left: 10px;
+}
+
+.badge {
+	background-color: #B22222 !important; 
+}
+
+/* FOOTER */
+
+.autor {
+	color: #fff;
+	text-decoration: none;
+}
+
+.autor:hover {
+	color: #004D40;
+	text-decoration: none;
+}
+
+/* ########################################################################################################## */
+
+/* HOME */
+
+/* ########################################################################################################## */
+
+/* SEETTINGS */
+
+#development {
+	color: red;
+}

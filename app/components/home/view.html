@@ -1,0 +1,82 @@
+<div class="row">
+        <div class="col-md-4">
+            <div class="jumbotron">
+            <div class="row featurette">
+                <div class="col-md-4">
+                    <img class="featurette-image img-responsive img-thumbnail" src="{{currentUser.picture}}" width="160px" height="160px">
+                </div>
+                <div class="col-md-8">
+                    <h3 class="featurette-heading"><span class="text-muted">{{currentUser.name}} {{currentUser.last_name}}</span></h3>
+                    
+                    <p class="featurette-heading"><span class="text-muted">@{{currentUser.login}}</span></p>
+                    
+                </div>
+            </div>
+            <form class="form-horizontal" name="submitionForm">
+            <fieldset>
+                    <!-- CONTENT 
+                    <div class="form-group ">                        
+                        <textarea 
+                                    class="form-control floating-label" 
+                                    rows="2" 
+                                    id="textArea"
+                                    placeholder="Add Message"
+                                    name="content"
+                                    ng-model="message.content"></textarea>
+
+                    </div> -->
+                    <div class="form-group col-lg-10">
+                    <br />
+                        <input 
+                                class="form-control floating-label" 
+                                id="focusedInput" 
+                                type="text" 
+                                placeholder="Add Message"
+                                ng-model="message.content"
+                                maxlength="{{maxlength}}">
+                                <span class="help-block">{{maxlength - message.content.length}}</span>
+                    </div>
+                    <!-- Submit/Cancel Buttons -->
+                    <div id="name-group" class="form-group">
+                        <div class="col-lg-2">
+                            <button 
+                                    type="submit" 
+                                    class="btn btn-primary btn-fab btn-raised mdi-content-add"
+                                    ng-click="addMessage(message.content, currentUser.id)"></button>
+                        </div>
+                    </div>
+                </fieldset>
+                </form>
+
+            </div><!-- .JUMBOTRON -->
+        </div> <!-- .col-md-4 -->
+
+
+
+    <div class="col-md-8">
+        <div class="jumbotron">
+
+            <div class="list-group">
+
+                <div ng-repeat="chu in chus track by chu.id">
+                <div class="list-group-item" >
+                    <div class="row-picture">
+                        <img class="circle" src="{{currentUser.picture}}" alt="icon">
+                    </div>
+                    <div class="row-content">
+                        <h4 class="list-group-item-heading">{{currentUser.name}} {{currentUser.last_name}}, {{chu.time}}</h4>
+                        <p class="list-group-item-text">{{chu.content}}</p>
+                    </div>
+                </div>
+                <div class="list-group-separator"></div>
+                </div>
+
+            </div> <!-- .LIST-GROUP -->
+        </div> <!-- .JUMBOTRON -->
+    </div> <!-- .col-md-8 -->
+
+    </div> <!-- row -->
+
+    <br />
+    <br />
+    <br />

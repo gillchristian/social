@@ -1,0 +1,89 @@
+<!doctype html>
+<html ng-app="socialApp" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>app :) </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- BOOTSTRAP -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- BOOTSTRAP MATEIRAL -->
+    <link href="assets/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+    <link href="assets/bower_components/bootstrap-material-design/dist/css/material-wfont.min.css" rel="stylesheet">
+    
+  </head>
+  <body>
+
+  <!-- NAV BAR -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/"><i class="mdi-action-favorite-outline"></i> hello</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav nav-pills">
+          <li class="active"><a href="#/"><i class="mdi-action-home"></i> Home</a></li>
+          <li><a href="#/new"><i class="mdi-communication-live-help"></i> New <span class="badge">3</span></a></li>    
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/todo"><i class="mdi-editor-border-color"></i> To do!</a></li>
+            <li><a href="#/settings"><i class="mdi-action-settings"></i></a></li>
+        </ul>
+
+      </div>
+    </div>
+    <!-- .NAV BAR -->
+
+    <div class="content"> <!-- content -->
+
+    <br />
+    <br />
+    <br />
+
+    <div ng-view></div> <!-- DINAMIC LOADED VIEW -->
+
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <p class="navbar-text pull-right">by <a class="autor" href="http://gillchristian.com" target="_blank">gillchristian</a></p>           
+        </nav>
+    </footer>
+
+    </div><!-- .content -->
+
+    <!-- FRAMEWORKS -->
+
+    <!-- jQUERY -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP MATEIRAL -->
+    <script src="assets/bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+    <script src="assets/bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.material.init();
+        });
+    </script>
+    <!-- ANGULARJS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+
+    <!-- APP SCRIPTS-->
+    <script src="app/app.js"></script>
+    <script src="app/components/home/homeController.js"></script>
+    <script src="app/components/todo/todoController.js"></script>
+    <script src="app/components/settings/settingsController.js"></script>
+    <script src="app/components/new/newController.js"></script>
+
+</body>
+</html>
