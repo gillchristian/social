@@ -20,6 +20,10 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
          templateUrl: 'app/templates/new.html',
          controller: 'NewController'
       })
+      .when('/login', {
+         templateUrl: 'app/templates/login.html',
+         controller: 'LoginController'
+      })
       .otherwise({
          redirectTo: '/'
       });
