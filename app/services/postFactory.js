@@ -7,7 +7,7 @@ angular.module('socialApp.services')
             PostMessagge: function(obj) {
                $http({
                      method: 'POST',
-                     url: location + '/app/lib/post.php',
+                     url: location + '/social/app/lib/post.php',
                      data: $.param({user_id: obj.userId, content: obj.message}),
                      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                   })

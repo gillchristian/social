@@ -7,7 +7,7 @@ angular.module('socialApp.services', [])
             login: function(obj) {
                $http({
                      method: 'POST',
-                     url: location + '/app/lib/user.php',
+                     url: location + '/social/app/lib/user.php',
                      data: $.param({username: obj.username, password: obj.password}),
                      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                   })
@@ -19,7 +19,7 @@ angular.module('socialApp.services', [])
             isLoged: function() {
                $http({
                      method: 'GET',
-                     url: location + '/app/lib/user.php'
+                     url: location + '/social/app/lib/user.php'
                   })
                   .success(function(user) {
                      deferred.resolve(user);
