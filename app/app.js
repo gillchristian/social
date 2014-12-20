@@ -29,4 +29,10 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
 .config(['$httpProvider', function($httpProvider) {
    $httpProvider.defaults.useXDomain = true;
    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+}])
+
+.run(function($rootScope, $location) {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      console.log('going to: ', next);
+    });
+  });

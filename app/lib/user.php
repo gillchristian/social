@@ -33,7 +33,7 @@
                 $data['last_name'] = $row["2"];
                 $data['picture'] = $row["3"];
                 $data['bio'] = $row["4"];
-                $data['login'] = $row["5"];
+                $data['username'] = $row["5"];
                 $data['password'] = $row["6"]; 
                 
                 echo json_encode($data);
