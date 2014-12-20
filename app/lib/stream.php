@@ -26,7 +26,7 @@
             $result = mysqli_query($conection,$query);
             $flag = true;
 
-            $all_rows = array();
+            /*$all_rows = array();
             while($row=mysqli_fetch_array($result)) {
               $all_rows[] = $row;
             }
@@ -53,8 +53,8 @@
                 }
             }
             
-            echo "]";
-            /*
+            echo "]"; */
+            
             while($row=mysqli_fetch_array($result) ) {
 
                 $data['id'] = $row["0"];
@@ -74,6 +74,6 @@
                     echo json_encode($data);    
                 }
             }
-            echo "]"; */           
+            echo "]";
 
             ?>
