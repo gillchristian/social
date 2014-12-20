@@ -1,16 +1,16 @@
-angular.module('socialApp.services', [])
-   .factory('UsersFactory', ['$http', '$q',
+angular.module('socialApp.services')
+   .factory('PostFactory', ['$http', '$q',
       function($http, $q) {
          var location = window.location.protocol + "//" + window.location.host;
          var deferred = $q.defer();
          return {
-            getUserById: function() {
+            PostMessagge: function() {
                $http({
                      method: 'GET',
-                     url: location + '/app/lib/user.php'
+                     url: location + '/app/lib/post.php'
                   })
-                  .success(function(user) {
-                     deferred.resolve(user);
+                  .success(function(data) {
+                     deferred.resolve(data);
                   });
                return deferred.promise;
             }
