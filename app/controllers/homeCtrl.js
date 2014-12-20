@@ -6,23 +6,18 @@ angular.module('socialApp.controllers', [])
          $scope.services = {
             getUserById: function() {
                UsersFactory.getUserById()
-                  .success(function(user) {
+                  .then(function(user) {
                      $scope.currentUser = user;
-                  })
-                  .error(function(error) {
-                     console.log(error);
                   });
             },
             getStream: function(){
                StreamFactory.getStream()
-                  .success(function(stream){
+                  .then(function(stream){
                      $scope.chus = stream;
-                  })
-                  .error(function(error){
-                     console.log(error);
-                  })
+                  });
             }
          };
+
 
          // Execute services to get data
          $scope.services.getUserById();
@@ -34,7 +29,6 @@ angular.module('socialApp.controllers', [])
 
          $scope.maxlength = 140;
 
-         var url_stream = "http://localhost/social/app/components/home/stream.php";
          var url_post = "http://localhost/social/app/components/home/post.php";
 
 
