@@ -6,19 +6,19 @@ var app = angular.module('socialApp', ['ngRoute']);
   app.config(function($routeProvider) {
       $routeProvider
         .when('/', {
-          templateUrl: 'app/components/home/view.html',
+          templateUrl: 'app/templates/home.html',
           controller: 'HomeController'
      })
         .when('/todo', {
-          templateUrl: 'app/components/todo/view.html',
+          templateUrl: 'app/templates/todo.html',
           controller: 'TodoController'
      })
         .when('/settings', {
-          templateUrl: 'app/components/settings/view.html',
+          templateUrl: 'app/templates/settings.html',
           controller: 'SettingsController'
      })
         .when('/new', {
-          templateUrl: 'app/components/new/view.html',
+          templateUrl: 'app/templates/new.html',
           controller: 'NewController'
      })
     .otherwise({redirectTo: '/'
