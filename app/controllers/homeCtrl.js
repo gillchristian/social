@@ -1,6 +1,6 @@
 angular.module('socialApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory',
-      function($scope, $http, UsersFactory, StreamFactory) {
+   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory', 'PostFactory',
+      function($scope, $http, UsersFactory, StreamFactory, PostFactory) {
 
          var location = window.location.protocol + "//" + window.location.host;
          //Services handler
@@ -16,6 +16,14 @@ angular.module('socialApp.controllers', [])
                   .then(function(stream){
                      $scope.chus = stream;
                   });
+            },
+            postMessage: function(obj){
+               PostFactory.PostMessagge(obj)
+               .then(function(data){
+                  console.log(data);
+                  $scope.chus.unshift(data);
+                  $scope.message.content = "";
+               })
             }
          };
 
@@ -24,24 +32,28 @@ angular.module('socialApp.controllers', [])
          $scope.services.getUserById();
          $scope.services.getStream();
 
+         $scope.addMessage = function(obj){
+            $scope.services.postMessage(obj);
+         }
+
 
 
          $scope.chus = [];
 
          $scope.maxlength = 140;
 
-         $scope.addMessage = function(content, user_id) {
+         // $scope.addMessage = function(content, user_id) {
 
-            $http.get(location + '/social/app/lib/post.php' + "/?user_id= " + user_id + "&content=" + content)
-               .success(function(data) {
-                  $scope.chus.unshift(data);
-                  $scope.message.content = "";
-               })
-               .error(function(data) {
-                  //  Do some error handling here
-               });
+         //    $http.get(location + '/social/app/lib/post.php' + "/?user_id= " + user_id + "&content=" + content)
+         //       .success(function(data) {
+         //          $scope.chus.unshift(data);
+         //          $scope.message.content = "";
+         //       })
+         //       .error(function(data) {
+         //          //  Do some error handling here
+         //       });
 
-         }
+         // }
 
 
       }

@@ -4,10 +4,12 @@ angular.module('socialApp.services')
          var location = window.location.protocol + "//" + window.location.host;
          var deferred = $q.defer();
          return {
-            PostMessagge: function() {
+            PostMessagge: function(obj) {
                $http({
-                     method: 'GET',
-                     url: location + '/social/app/lib/post.php'
+                     method: 'POST',
+                     url: location + '/app/lib/post.php',
+                     data: $.param({user_id: obj.userId, content: obj.message}),
+                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                   })
                   .success(function(data) {
                      deferred.resolve(data);

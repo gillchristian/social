@@ -1,9 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *'); // Allows to do CORS!!!
 header ("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-header ("Access-Control-Allow-Headers", "Content-Type");
-header('Access-Control-Allow-Headers: X-Requested-With');
-header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token');
+// header ("Access-Control-Allow-Headers", "Content-Type");
+// header('Access-Control-Allow-Headers: X-Requested-With');
+// header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token');
+//Nico Test
+header('Access-Control-Allow-Headers: *');
 
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
@@ -20,10 +22,12 @@ $yourfield = "SocialAppData";
 $conection = mysqli_connect($hostname, $username, $password, $dbname) OR DIE ("Unable to 
 connect to database! Please try again later.");
 
-if (isset($_GET['content'])) {
 
-    $content = $_GET['content'];
-    $user_id = $_GET['user_id'];    
+
+if (isset($_POST['content'])) {
+
+    $content = $_POST['content'];
+    $user_id = $_POST['user_id'];   
 
     $time = date("Y-m-d h:i:s");
 

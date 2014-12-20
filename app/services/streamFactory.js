@@ -7,7 +7,7 @@ angular.module('socialApp.services')
             getStream: function() {
                $http({
                      method: 'GET',
-                     url: location + '/social/app/lib/stream.php'
+                     url: location + '/app/lib/stream.php'
                   })
                   .success(function(data) {
                      deferred.resolve(data);
