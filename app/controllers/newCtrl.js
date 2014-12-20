@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('socialApp')
+angular.module('socialApp.controllers')
     .controller('NewController', ['$scope', function ($scope) {
 
     	$scope.chus = [

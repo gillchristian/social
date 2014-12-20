@@ -1,6 +1,4 @@
-'use strict';
-
-angular.module('socialApp')
+angular.module('socialApp.controllers')
     .controller('SettingsController', ['$scope', function ($scope) {
     
     }]); /* CONTROLLER FUCTION END */

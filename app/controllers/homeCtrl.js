@@ -1,53 +1,56 @@
-'use strict';
+angular.module('socialApp.controllers', [])
+   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory',
+      function($scope, $http, UsersFactory, StreamFactory) {
 
-angular.module('socialApp')
-    .controller('HomeController', ['$scope', '$http', '$window', function ($scope, $http, $window) {
-    
-      $scope.currentUser = [];
-      $scope.chus = [];
+         //Services handler
+         $scope.services = {
+            getUserById: function() {
+               UsersFactory.getUserById()
+                  .success(function(user) {
+                     $scope.currentUser = user;
+                  })
+                  .error(function(error) {
+                     console.log(error);
+                  });
+            },
+            getStream: function(){
+               StreamFactory.getStream()
+                  .success(function(stream){
+                     $scope.chus = stream;
+                  })
+                  .error(function(error){
+                     console.log(error);
+                  })
+            }
+         };
 
-      $scope.maxlength = 140;
+         // Execute services to get data
+         $scope.services.getUserById();
+         $scope.services.getStream();
 
-      var url_user = "http://localhost/social/app/components/home/user.php";
-      var url_stream = "http://localhost/social/app/components/home/stream.php";
-      var url_post = "http://localhost/social/app/components/home/post.php";
-      
-      $http.get(url_user)
-               .success(function (data) {
-                   $scope.currentUser = data;
-                   //console.log('succes: ',$scope.currentUser);
-               })
-               .error(function (data) {
-                   //  Do some error handling here
-                   $scope.currentUser = data;
-                   //console.log('error: ', $scope.currentUser);
 
-               });
 
-      $http.get(url_stream)
-               .success(function (data) {
-                   $scope.chus = data;
-                   //console.log('succes: ',$scope.chus);
-               })
-               .error(function (data) {
-                   //  Do some error handling here
-                   $scope.chus = data;
-                   //console.log('error: ', $scope.chus);
+         $scope.chus = [];
 
-               });
+         $scope.maxlength = 140;
 
-      $scope.addMessage = function (content, user_id) {
-        
-        $http.get(url_post + "/?user_id= " + user_id +  "&content=" +content)
-                .success(function (data) {
+         var url_stream = "http://localhost/social/app/components/home/stream.php";
+         var url_post = "http://localhost/social/app/components/home/post.php";
+
+
+         $scope.addMessage = function(content, user_id) {
+
+            $http.get(url_post + "/?user_id= " + user_id + "&content=" + content)
+               .success(function(data) {
                   $scope.chus.unshift(data);
                   $scope.message.content = "";
-                })
-                .error(function (data) {
-                   //  Do some error handling here
-                });
+               })
+               .error(function(data) {
+                  //  Do some error handling here
+               });
+
+         }
+
 
       }
-
-
-    }]); /* CONTROLLER FUCTION END */
+   ]); /* CONTROLLER FUCTION END */
