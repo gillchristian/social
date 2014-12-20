@@ -2,6 +2,7 @@ angular.module('socialApp.controllers', [])
    .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory',
       function($scope, $http, UsersFactory, StreamFactory) {
 
+         var location = window.location.protocol + "//" + window.location.host;
          //Services handler
          $scope.services = {
             getUserById: function() {
@@ -29,12 +30,9 @@ angular.module('socialApp.controllers', [])
 
          $scope.maxlength = 140;
 
-         var url_post = "http://localhost/social/app/components/home/post.php";
-
-
          $scope.addMessage = function(content, user_id) {
 
-            $http.get(url_post + "/?user_id= " + user_id + "&content=" + content)
+            $http.get(location + '/social/app/lib/post.php' + "/?user_id= " + user_id + "&content=" + content)
                .success(function(data) {
                   $scope.chus.unshift(data);
                   $scope.message.content = "";
