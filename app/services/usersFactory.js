@@ -7,7 +7,7 @@ angular.module('socialApp.services', [])
             getUserById: function() {
                $http({
                      method: 'GET',
-                     url: location + '/app/lib/user.php'
+                     url: location + '/social/app/lib/user.php'
                   })
                   .success(function(user) {
                      deferred.resolve(user);

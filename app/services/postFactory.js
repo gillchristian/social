@@ -7,7 +7,7 @@ angular.module('socialApp.services')
             PostMessagge: function() {
                $http({
                      method: 'GET',
-                     url: location + '/app/lib/post.php'
+                     url: location + '/social/app/lib/post.php'
                   })
                   .success(function(data) {
                      deferred.resolve(data);
