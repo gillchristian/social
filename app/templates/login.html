@@ -7,7 +7,7 @@
                                     id="username"
                                     placeholder="Username"
                                     name="user name"
-                                    ng-model="login.username"
+                                    ng-model="user.username"
                                     type="text"
                                     required></input>
 
@@ -18,7 +18,7 @@
                                     class="form-control floating-label"  
                                     id="password"
                                     name="Password"
-                                    ng-model="longin.password"
+                                    ng-model="user.password"
                                     placeholder="Password"
                                     type="password"\
                                     required></input>
@@ -31,8 +31,11 @@
                     <button 
                             type="submit" 
                             class="btn btn-primary"
-                            ng-disabled="submitionForm.$invalid">Log in</button>
+                            ng-disabled="submitionForm.$invalid"
+                            ng-click="login()">Log in
+                    </button>
                 </div>
+                <p>{{errorMessage}}</p>
             </div>
             </fieldset>
          </form>

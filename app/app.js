@@ -1,8 +1,6 @@
 angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.services'])
 
-
-
-.config(function($routeProvider) {
+.config(function ($routeProvider) {
    $routeProvider
       .when('/', {
          templateUrl: 'app/templates/home.html',
@@ -35,8 +33,15 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-.run(function($rootScope, $location) {
+.run(function ($rootScope, $location, LoginFactory) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log('going to: ', next);
+      console.log('Cmabie de estado');
+      LoginFactory.isLogged()
+      .then(function (user){
+         console.log('user de .run: ', user);
+         if(user === 'null'){
+            $location.path('/login');
+         }
+      });
     });
   });
