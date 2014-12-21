@@ -12,7 +12,7 @@ angular.module('socialApp.controllers')
     		.then(function(data){
     			console.log('data: ', data);
     			if(data !== ''){
-    				$location.path('/');
+    				$location.path('/todo');
     			} else {
     				$scope.errorMessage = 'Pone bien los datos logi';
     			}

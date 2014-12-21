@@ -27,7 +27,6 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
       });
 })
 
-
 .config(['$httpProvider', function($httpProvider) {
    $httpProvider.defaults.useXDomain = true;
    delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -38,7 +37,6 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
       console.log('Cmabie de estado');
       LoginFactory.isLogged()
       .then(function (user){
-         console.log('user de .run: ', user);
          if(user === 'null'){
             $location.path('/login');
          }

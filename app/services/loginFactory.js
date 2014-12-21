@@ -12,6 +12,7 @@ angular.module('socialApp.services')
                      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                   })
                   .success(function(user) {
+                     console.log('user: ', user);
                      deferred.resolve(user);
                   });
                return deferred.promise;
