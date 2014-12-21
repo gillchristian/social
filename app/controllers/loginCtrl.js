@@ -9,10 +9,11 @@ angular.module('socialApp.controllers')
 
     	$scope.login = function(){
     		LoginFactory.login($scope.user)
-    		.then(function(data){
+    		.success(function(data){
     			console.log('Data Login: ', data);
-    			if(data !== ''){
-    				$location.path('/todo');
+    			if(typeof data === 'object'){
+    				// $location.path('/');
+    				// $location.url('/');
     			} else {
     				$scope.errorMessage = 'Pone bien los datos logi';
     			}

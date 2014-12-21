@@ -5,17 +5,12 @@ angular.module('socialApp.services')
          var deferred = $q.defer();
          return {
             login: function(obj) {
-               $http({
+               return $http({
                      method: 'POST',
                      url: location + '/social/app/lib/login/login.php',
                      data: $.param({username: obj.username, password: obj.password}),
                      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                  })
-                  .success(function(user) {
-                     console.log('user: ', user);
-                     deferred.resolve(user);
                   });
-               return deferred.promise;
             },
             isLogged: function() {
                $http({
