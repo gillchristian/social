@@ -7,5 +7,8 @@ header ("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
 //Nico Test
 header('Access-Control-Allow-Headers: *');
 session_start();
-echo json_encode($_SESSION["user"]);
+if (isset($_SESSION['user'])) {
+	echo json_encode($_SESSION["user"]);
+}
+
 ?>
