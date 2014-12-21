@@ -10,7 +10,7 @@ angular.module('socialApp.controllers')
     	$scope.login = function(){
     		LoginFactory.login($scope.user)
     		.then(function(data){
-    			console.log('data: ', data);
+    			console.log('Data Login: ', data);
     			if(data !== ''){
     				$location.path('/todo');
     			} else {

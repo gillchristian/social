@@ -37,7 +37,7 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
       console.log('Cmabie de estado');
       LoginFactory.isLogged()
       .then(function (user){
-         if(user === 'null'){
+         if(user === ''){
             $location.path('/login');
          }
       });
