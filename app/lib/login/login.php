@@ -37,15 +37,15 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 	if($row["username"] != null){
 
 		$data['id'] = $row["0"];
-		$data['user_id'] = $row["1"];
-		$data['content'] = $row["2"];
-		$data['time'] = $row["3"];
-		$data['favorite'] = $row["4"];
-		$data['read'] = $row["5"];
+		$data['name'] = $row["1"];
+		$data['last_name'] = $row["2"];
+		$data['picture'] = $row["3"];
+		$data['bio'] = $row["4"];
+		$data['username'] = $row["5"];
 		
 		session_start();
 		$_SESSION["user"] = $data;
-		echo json_encode($_SESSION["user"]);
+		print json_encode($_SESSION["user"]);
 	}
 }
 ?>

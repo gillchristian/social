@@ -1,3 +1,10 @@
+<button 
+                              type="submit" 
+                              class="btn btn-primary btn-fab btn-raised mdi-action-exit-to-app" 
+                              ng-click="logout()"></button>
+
+<br />
+
 <div class="row">
    <div class="col-md-4">
       <div class="jumbotron">
@@ -35,7 +42,10 @@
                <!-- Submit/Cancel Buttons -->
                <div id="name-group" class="form-group">
                   <div class="col-lg-2">
-                     <button type="submit" class="btn btn-primary btn-fab btn-raised mdi-content-add" ng-click="addMessage({message: message.content, userId: currentUser.id})"></button>
+                     <button 
+                              type="submit" 
+                              class="btn btn-primary btn-fab btn-raised mdi-content-add" 
+                              ng-click="addMessage({message: message.content, userId: currentUser.id})"></button>
                   </div>
                </div>
             </fieldset>

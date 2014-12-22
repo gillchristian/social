@@ -34,7 +34,7 @@ angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.serv
 
 .run(function ($rootScope, $location, LoginFactory) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log('Cmabie de estado');
+      console.log('Cambio de estado');
       LoginFactory.isLogged()
       .then(function (user){
          if(user === ''){

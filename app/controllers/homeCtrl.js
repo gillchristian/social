@@ -1,6 +1,6 @@
 angular.module('socialApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory', 'PostFactory',
-      function($scope, $http, UsersFactory, StreamFactory, PostFactory) {
+   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory', 'PostFactory', 'LoginFactory',
+      function($scope, $http, UsersFactory, StreamFactory, PostFactory, LoginFactory) {
 
          var location = window.location.protocol + "//" + window.location.host;
          //Services handler
@@ -24,6 +24,13 @@ angular.module('socialApp.controllers', [])
                   $scope.chus.unshift(data);
                   $scope.message.content = "";
                })
+            },
+            logout: function(){
+               LoginFactory.logout()
+               .then(function (data){
+                  console.log('logout clicked');
+                  $window.location.reload();
+               })
             }
          };
 
@@ -36,7 +43,9 @@ angular.module('socialApp.controllers', [])
             $scope.services.postMessage(obj);
          }
 
-
+         $scope.logout = function(){
+            $scope.services.logout();
+         }
 
          $scope.chus = [];
 
