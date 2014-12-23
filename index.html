@@ -7,8 +7,6 @@
    <meta name="description" content="">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- custom css -->
-   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
    <!-- BOOTSTRAP -->
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
    <!-- FONT AWESOME -->
@@ -16,28 +14,30 @@
    <!-- BOOTSTRAP MATEIRAL -->
    <link href="assets/bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
    <link href="assets/bower_components/bootstrap-material-design/dist/css/material-wfont.min.css" rel="stylesheet">
-
+   <!-- FONTS -->
+   <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Roboto:300,700&subset=cyrillic,latin,latin-ext' rel='stylesheet' type='text/css'>
+   <!-- custom css -->
+   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+   
 </head>
 
 <body>
 
-   <!-- NAV BAR -->
-   <div ui-view="navbar"></div>
+   
+   <div ui-view="navbar"></div><!-- DINAMIC LOADED VIEW --><!-- NAV BAR -->
 
 
    <div class="content">
       <!-- content -->
 
-      <br />
-      <br />
-      <br />
-
-      <div ui-view="content"></div>
-      <!-- DINAMIC LOADED VIEW -->
+      <div class="font-body">
+         <div ui-view="content"></div><!-- DINAMIC LOADED VIEW --><!-- CONTENT -->
+      </div>
 
       <footer>
          <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-            <p class="navbar-text pull-right">by <a class="autor" href="http://gillchristian.com" target="_blank">gillchristian</a> & la alta ayuda de nico
+            <p class="navbar-text pull-right">by <a class="autor" href="http://gillchristian.com" target="_blank">gillchristian</a>
             </p>
          </nav>
       </footer>

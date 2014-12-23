@@ -17,11 +17,18 @@ angular.module('socialApp.controllers', [])
                      $scope.chus = stream;
                   });
             },
-            postMessage: function(obj){
-               PostFactory.PostMessagge(obj)
-               .then(function(data){
+            getStreamNoPromise: function(){
+               StreamFactory.getStreamNoPromise()
+                  .success(function(stream){
+                     $scope.chus = stream;
+                  });
+            },
+            PostMessage: function(obj){
+               PostFactory.PostMessage(obj)
+               .success(function(data){
                   $scope.chus.unshift(data);
                   $scope.message.content = "";
+                  console.log(data);
                })
             },
             logout: function(){
@@ -39,7 +46,7 @@ angular.module('socialApp.controllers', [])
          $scope.services.getStream();
 
          $scope.addMessage = function(obj){
-            $scope.services.postMessage(obj);
+            $scope.services.PostMessage(obj);
          }
 
          $scope.logout = function(){

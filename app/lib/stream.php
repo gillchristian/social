@@ -22,7 +22,7 @@
             connect to database! Please try again later.");
 
             //Fetching from your database table.
-            $query = "SELECT * FROM $usertable ORDER BY 'time'";
+            $query = "SELECT * FROM $usertable ORDER BY id DESC";
             $result = mysqli_query($conection,$query);
             $flag = true;
 

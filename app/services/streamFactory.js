@@ -13,6 +13,12 @@ angular.module('socialApp.services')
                      deferred.resolve(data);
                   });
                return deferred.promise;
+            },
+            getStreamNoPromise: function() {
+               return $http({
+                     method: 'GET',
+                     url: location + '/social/app/lib/stream.php'
+                  });
             }
          }
       }
