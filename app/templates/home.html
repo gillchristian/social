@@ -3,7 +3,11 @@
       <div class="jumbotron fixed">
          <div class="row featurette">
             <div class="col-md-4">
-               <img class="featurette-image img-responsive img-thumbnail" ng-src="{{currentUser.picture}}" width="160px" height="160px">
+               <img 
+                     class="featurette-image img-responsive img-thumbnail" 
+                     ng-src="/social/assets/img/profilePics/{{currentUser.username}}.jpg" 
+                     width="160px" 
+                     height="160px">
             </div>
             <div class="col-md-8">
                <h3 class="featurette-heading"><span class="text-muted">{{currentUser.name}} {{currentUser.last_name}}</span></h3>
