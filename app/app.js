@@ -24,7 +24,8 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
          url: "/todo",
          views: {
                 "navbar": {
-                    templateUrl: "app/templates/navbar.html"
+                    templateUrl: "app/templates/navbar.html",
+                    controller: 'NavbarController'
                 },
                 "content": {
                     templateUrl: "app/templates/todo.html",
@@ -36,7 +37,8 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
          url: '/settings',
          views: {
                 "navbar": {
-                    templateUrl: "app/templates/navbar.html"
+                    templateUrl: "app/templates/navbar.html",
+                    controller: 'NavbarController'
                 },
                 "content": {
                     templateUrl: "app/templates/settings.html",
@@ -48,7 +50,8 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
          url: "/new",
          views: {
                 "navbar": {
-                    templateUrl: "app/templates/navbar.html"
+                    templateUrl: "app/templates/navbar.html",
+                    controller: 'NavbarController'
                 },
                 "content": {
                     templateUrl: "app/templates/new.html",
