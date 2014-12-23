@@ -1,5 +1,5 @@
 angular.module('socialApp.controllers', [])
-   .controller('HomeCtrl', ['$scope', '$http', 'UsersFactory', 'StreamFactory', 'PostFactory', 'LoginFactory',
+   .controller('HomeController', ['$scope', '$http', 'UsersFactory', 'StreamFactory', 'PostFactory', 'LoginFactory',
       function($scope, $http, UsersFactory, StreamFactory, PostFactory, LoginFactory) {
 
          var location = window.location.protocol + "//" + window.location.host;
@@ -27,10 +27,10 @@ angular.module('socialApp.controllers', [])
             },
             logout: function(){
                LoginFactory.logout()
-               .then(function (data){
+               .success(function (data){
                   console.log('logout clicked');
-                  $window.location.reload();
-               })
+                  $state.go('login');
+               });
             }
          };
 

@@ -1,45 +1,84 @@
-angular.module('socialApp', ['ngRoute', 'socialApp.controllers', 'socialApp.services'])
+angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.services'])
 
-.config(function ($routeProvider) {
-   $routeProvider
-      .when('/', {
-         templateUrl: 'app/templates/home.html',
-         controller: 'HomeCtrl'
+.config(function($stateProvider, $urlRouterProvider) {
+   //
+   // For any unmatched url, redirect to /state1
+   $urlRouterProvider.otherwise("/");
+   //
+   // Now set up the states
+   $stateProvider
+      .state('app', {
+         url: '/',
+         templateUrl: "app/templates/home.html",
+         controller: 'HomeController'
       })
-      .when('/todo', {
+      .state('todo', {
+         url: "/todo",
          templateUrl: 'app/templates/todo.html',
          controller: 'TodoController'
       })
-      .when('/settings', {
+      .state('settings', {
+         url: '/settings',
          templateUrl: 'app/templates/settings.html',
          controller: 'SettingsController'
       })
-      .when('/new', {
+      .state('new', {
+         url: "/new",
          templateUrl: 'app/templates/new.html',
          controller: 'NewController'
       })
-      .when('/login', {
+      .state('login', {
+         url: "/login",
          templateUrl: 'app/templates/login.html',
          controller: 'LoginController'
-      })
-      .otherwise({
-         redirectTo: '/'
       });
 })
+
+// .config(function($routeProvider) {
+//    $routeProvider
+//       .when('/', {
+//          templateUrl: 'app/templates/home.html',
+//          controller: 'HomeCtrl'
+//       })
+//       .when('/todo', {
+//          templateUrl: 'app/templates/todo.html',
+//          controller: 'TodoController'
+//       })
+//       .when('/settings', {
+//          templateUrl: 'app/templates/settings.html',
+//          controller: 'SettingsController'
+//       })
+//       .when('/new', {
+//          templateUrl: 'app/templates/new.html',
+//          controller: 'NewController'
+//       })
+//       .when('/login', {
+//          templateUrl: 'app/templates/login.html',
+//          controller: 'LoginController'
+//       })
+//       .otherwise({
+//          redirectTo: '/'
+//       });
+// })
 
 .config(['$httpProvider', function($httpProvider) {
    $httpProvider.defaults.useXDomain = true;
    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-.run(function ($rootScope, $location, LoginFactory) {
-    $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log('Cambio de estado');
-      LoginFactory.isLogged()
-      .then(function (user){
-         if(user === ''){
-            $location.path('/login');
-         }
-      });
-    });
-  });
+.run(function($rootScope, $state, LoginFactory) {
+   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      console.log('toState:', toState.name);
+
+      if (toState.name !== 'login') {
+            //event.preventDefault();
+            LoginFactory.isLogged()
+            .success(function(user) {
+               if (user === '') {
+                  $state.go('login');
+               }
+            });
+      }
+
+   });
+});

@@ -1,8 +1,7 @@
 angular.module('socialApp.services')
-   .factory('LoginFactory', ['$http', '$q',
+   .factory('LoginFactory', ['$http',
       function($http, $q) {
          var location = window.location.protocol + "//" + window.location.host;
-         var deferred = $q.defer();
          return {
             login: function(obj) {
                return $http({
@@ -13,20 +12,16 @@ angular.module('socialApp.services')
                   });
             },
             isLogged: function() {
-               $http({
+               return $http({
                      method: 'GET',
                      url: location + '/social/app/lib/login/isLogged.php'
-                  })
-                  .success(function(user) {
-                     deferred.resolve(user);
                   });
-               return deferred.promise;
             },
             logout: function(){
-               $http({
+               return $http({
                      method: 'POST',
                      url: location + '/social/app/lib/login/logout.php'
-                  })
+                  });
             }
 
          }
