@@ -67,13 +67,24 @@ angular.module('socialApp.controllers', [])
          $scope.getProfileName = function(user_id){
             switch(user_id){
                case '1':
-                  return 'Gill pito duro';
+                  return 'Christian Gill';
                   break;
                case '2': 
                   return 'Rocio Jalifi';
                   break;
             }
          };
+
+         $scope.getUsername = function(user_id){
+            switch(user_id){
+               case '1':
+                  return 'novio';
+                  break;
+               case '2': 
+                  return 'novia';
+                  break;
+            }
+         };         
 
          $scope.chus = [];
 

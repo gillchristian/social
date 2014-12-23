@@ -15,7 +15,7 @@ angular.module('socialApp.controllers')
     				// $location.url('/');
     				$state.go('app');
     			} else {
-    				$scope.errorMessage = 'Pone bien los datos logi';
+    				$scope.errorMessage = 'Wrong username or password!';
     			}
     		});
     	};

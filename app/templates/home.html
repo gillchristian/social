@@ -3,17 +3,17 @@
 <br />
 
 <div class="row">
-   <div class="col-md-4" >
+   <div class="col-md-4 col-md-offset-1" >
       <div class="jumbotron">
          <div class="row featurette">
-            <div class="col-md-4">
+            <div class="col-xs-4">
                <img 
                      class="featurette-image img-responsive img-thumbnail" 
                      ng-src="/social/assets/img/profilePics/{{currentUser.username}}.jpg" 
                      width="160px" 
                      height="160px">
             </div>
-            <div class="col-md-8">
+            <div class="col-xs-8">
                <h3 class="featurette-heading"><span class="text-muted">{{currentUser.name}} {{currentUser.last_name}}</span></h3>
 
                <p class="featurette-heading"><span class="text-muted">@{{currentUser.username}}</span>
@@ -34,7 +34,7 @@
                                     ng-model="message.content"></textarea>
 
                     </div> -->
-               <div class="form-group col-lg-10">
+               <div class="form-group col-xs-10">
                   <br />
                   <textarea rows="3" cols="50" class="form-control floating-label" id="focusedInput" placeholder="Add Message" ng-model="message.content" maxlength="{{maxlength}}">
                   </textarea>
@@ -42,7 +42,7 @@
                </div>
                <!-- Submit/Cancel Buttons -->
                <div id="name-group" class="form-group">
-                  <div class="col-lg-2">
+                  <div class="col-xs-2">
                      <button 
                               type="submit" 
                               class="btn btn-primary btn-fab btn-raised mdi-content-add" 
@@ -57,7 +57,7 @@
    </div>
    <!-- .col-md-4 -->
 
-   <div class="col-md-8">
+   <div class="col-md-6">
       <div class="jumbotron">
 
          <div class="list-group">
@@ -68,8 +68,8 @@
                      <img class="circle" ng-src="/social/assets/img/profilePics/{{getProfilePicture(chu.user_id)}}.jpg" alt="icon">
                   </div>
                   <div class="row-content">
-                     <h4 class="list-group-item-heading">{{getProfileName(chu.user_id)}}, {{chu.time}}</h4>
-                     <p class="list-group-item-text">{{chu.content}}</p>
+                     <p class="username">{{getProfileName(chu.user_id)}} - {{getUsername(chu.user_id)}}</p>
+                     <p class="post-content">{{chu.content}}</p>
                   </div>
                </div>
                <div class="list-group-separator"></div>

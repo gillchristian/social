@@ -110,6 +110,11 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
                if (user === '') {
                   $state.go('login');
                }
+            })
+            .error(function(user) {
+               if (user === '') {
+                  $state.go('login');
+               }
             });
       }
 
