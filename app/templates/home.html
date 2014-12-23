@@ -1,21 +1,14 @@
-<button 
-                              type="submit" 
-                              class="btn btn-primary btn-fab btn-raised mdi-action-exit-to-app" 
-                              ng-click="logout()"></button>
-
-<br />
-
 <div class="row">
    <div class="col-md-4">
       <div class="jumbotron">
          <div class="row featurette">
             <div class="col-md-4">
-               <img class="featurette-image img-responsive img-thumbnail" src="{{currentUser.picture}}" width="160px" height="160px">
+               <img class="featurette-image img-responsive img-thumbnail" ng-src="{{currentUser.picture}}" width="160px" height="160px">
             </div>
             <div class="col-md-8">
                <h3 class="featurette-heading"><span class="text-muted">{{currentUser.name}} {{currentUser.last_name}}</span></h3>
 
-               <p class="featurette-heading"><span class="text-muted">@{{currentUser.login}}</span>
+               <p class="featurette-heading"><span class="text-muted">@{{currentUser.username}}</span>
                </p>
 
             </div>
@@ -64,10 +57,10 @@
             <div ng-repeat="chu in chus track by chu.id">
                <div class="list-group-item">
                   <div class="row-picture">
-                     <img class="circle" src="{{currentUser.picture}}" alt="icon">
+                     <img class="circle" ng-src="/social/assets/img/profilePics/{{getProfilePicture(chu.user_id)}}.jpg" alt="icon">
                   </div>
                   <div class="row-content">
-                     <h4 class="list-group-item-heading">{{currentUser.name}} {{currentUser.last_name}}, {{chu.time}}</h4>
+                     <h4 class="list-group-item-heading">{{getProfileName(chu.user_id)}}, {{chu.time}}</h4>
                      <p class="list-group-item-text">{{chu.content}}</p>
                   </div>
                </div>

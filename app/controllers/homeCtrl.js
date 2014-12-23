@@ -5,16 +5,18 @@ angular.module('socialApp.controllers', [])
          var location = window.location.protocol + "//" + window.location.host;
          //Services handler
          $scope.services = {
-            getUserById: function() {
-               UsersFactory.getUserById()
-                  .then(function(user) {
+            getUser: function() {
+               LoginFactory.isLogged()
+                  .success(function(user) {
                      $scope.currentUser = user;
+                     console.log('user', user);
                   });
             },
             getStream: function(){
                StreamFactory.getStream()
                   .then(function(stream){
                      $scope.chus = stream;
+                     console.log(stream);
                   });
             },
             postMessage: function(obj){
@@ -36,7 +38,7 @@ angular.module('socialApp.controllers', [])
 
 
          // Execute services to get data
-         $scope.services.getUserById();
+         $scope.services.getUser();
          $scope.services.getStream();
 
          $scope.addMessage = function(obj){
@@ -46,6 +48,29 @@ angular.module('socialApp.controllers', [])
          $scope.logout = function(){
             $scope.services.logout();
          }
+
+         $scope.getProfilePicture = function(user_id){
+            console.log(' picture:', user_id);
+            switch(user_id){
+               case '1':
+                  return 'novio';
+                  break;
+               case '2': 
+                  return 'novia';
+                  break;
+            }
+         };
+
+         $scope.getProfileName = function(user_id){
+            switch(user_id){
+               case '1':
+                  return 'Gill pito duro';
+                  break;
+               case '2': 
+                  return 'Rocio Jalifi';
+                  break;
+            }
+         };
 
          $scope.chus = [];
 

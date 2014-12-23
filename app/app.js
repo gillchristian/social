@@ -11,7 +11,8 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
          url: '/',
          views: {
                 "navbar": {
-                    templateUrl: "app/templates/navbar.html"
+                    templateUrl: "app/templates/navbar.html",
+                    controller: 'NavbarController'
                 },
                 "content": {
                     templateUrl: "app/templates/home.html",
