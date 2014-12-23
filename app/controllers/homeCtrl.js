@@ -9,14 +9,12 @@ angular.module('socialApp.controllers', [])
                LoginFactory.isLogged()
                   .success(function(user) {
                      $scope.currentUser = user;
-                     console.log('user', user);
                   });
             },
             getStream: function(){
                StreamFactory.getStream()
                   .then(function(stream){
                      $scope.chus = stream;
-                     console.log(stream);
                   });
             },
             postMessage: function(obj){
@@ -50,7 +48,6 @@ angular.module('socialApp.controllers', [])
          }
 
          $scope.getProfilePicture = function(user_id){
-            console.log(' picture:', user_id);
             switch(user_id){
                case '1':
                   return 'novio';
