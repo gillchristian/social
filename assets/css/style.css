@@ -1,4 +1,7 @@
 /* GENERAL */
+body {
+	background-color: #CFD8DC !important	;
+}
 
 .content {
 	padding-top: 10px;
@@ -6,11 +9,28 @@
 	padding-left: 15px;
 
 }
+
+.font-body{
+	font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron {
+	background-color: #FFF2EB !important;
+}
+
 /* NAVBAR */
 
 .navbar {
 	padding-right: 15px;
 	padding-left: 10px;
+}
+
+.navbar, .navbar-default, .btn{
+background-color: #EF5350 !important;
+}
+
+.navbar, .navbar-default{
+	font-family: 'Lobster', cursive;
 }
 
 .badge {
