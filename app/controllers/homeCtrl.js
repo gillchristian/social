@@ -20,7 +20,6 @@ angular.module('socialApp.controllers', [])
             postMessage: function(obj){
                PostFactory.PostMessagge(obj)
                .then(function(data){
-                  console.log(data);
                   $scope.chus.unshift(data);
                   $scope.message.content = "";
                })
