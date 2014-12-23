@@ -10,7 +10,6 @@ angular.module('socialApp.controllers')
     	$scope.login = function(){
     		LoginFactory.login($scope.user)
     		.success(function(data){
-    			console.log('Data Login: ', data);
     			if(typeof data === 'object'){
     				// $location.path('/');
     				// $location.url('/');

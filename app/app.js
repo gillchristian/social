@@ -9,28 +9,60 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
    $stateProvider
       .state('app', {
          url: '/',
-         templateUrl: "app/templates/home.html",
-         controller: 'HomeController'
+         views: {
+                "navbar": {
+                    templateUrl: "app/templates/navbar.html"
+                },
+                "content": {
+                    templateUrl: "app/templates/home.html",
+                     controller: 'HomeController'
+                }
+            }
       })
       .state('todo', {
          url: "/todo",
-         templateUrl: 'app/templates/todo.html',
-         controller: 'TodoController'
+         views: {
+                "navbar": {
+                    templateUrl: "app/templates/navbar.html"
+                },
+                "content": {
+                    templateUrl: "app/templates/todo.html",
+                     controller: 'TodoController'
+                }
+            }
       })
       .state('settings', {
          url: '/settings',
-         templateUrl: 'app/templates/settings.html',
-         controller: 'SettingsController'
+         views: {
+                "navbar": {
+                    templateUrl: "app/templates/navbar.html"
+                },
+                "content": {
+                    templateUrl: "app/templates/settings.html",
+                     controller: 'SettingsController'
+                }
+            }
       })
       .state('new', {
          url: "/new",
-         templateUrl: 'app/templates/new.html',
-         controller: 'NewController'
+         views: {
+                "navbar": {
+                    templateUrl: "app/templates/navbar.html"
+                },
+                "content": {
+                    templateUrl: "app/templates/new.html",
+                     controller: 'NewController'
+                }
+            }
       })
       .state('login', {
          url: "/login",
-         templateUrl: 'app/templates/login.html',
-         controller: 'LoginController'
+         views: {
+                "content": {
+                    templateUrl: "app/templates/login.html",
+                     controller: 'LoginController'
+                }
+            }
       });
 })
 
@@ -68,11 +100,8 @@ angular.module('socialApp', ['ui.router', 'socialApp.controllers', 'socialApp.se
 
 .run(function($rootScope, $state, LoginFactory) {
    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      console.log('toState:', toState.name);
-
       if (toState.name !== 'login') {
-            //event.preventDefault();
-            LoginFactory.isLogged()
+         LoginFactory.isLogged()
             .success(function(user) {
                if (user === '') {
                   $state.go('login');
