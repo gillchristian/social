@@ -39,9 +39,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 		$data['id'] = $row["0"];
 		$data['name'] = $row["1"];
 		$data['last_name'] = $row["2"];
-		$data['picture'] = $row["3"];
-		$data['bio'] = $row["4"];
-		$data['username'] = $row["5"];
+		$data['bio'] = $row["3"];
+		$data['username'] = $row["4"];
 		
 		session_start();
 		$_SESSION["user"] = $data;
