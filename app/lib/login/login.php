@@ -10,14 +10,13 @@ header('Access-Control-Allow-Headers: *');
 
 //Variables for connecting to your database.
 //These variable values come from your hosting account.
-$hostname = "SocialAppData.db.11105068.hostedresource.com";
-$username = "SocialAppData";
-$dbname = "SocialAppData";
+$hostname = "HOST_NAME_HERE";
+$username = "USER_NAME_HERE";
+$dbname = "DATA_BASE_NAME_HERE";
 
 //These variable values need to be changed by you before deploying
-$password = "T1nydoto@";
-$usertable = "SocialAppData.users";
-$yourfield = "SocialAppData";
+$password = "PASSWORD_HERE";
+$usertable = "TABLE_HERE";
 
 //Connecting to your database
 $conection = mysqli_connect($hostname, $username, $password, $dbname) OR DIE ("Unable to 
