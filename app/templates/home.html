@@ -23,20 +23,18 @@
          </div>
          <form class="form-horizontal" name="submitionForm">
             <fieldset>
-               <!-- CONTENT 
-                    <div class="form-group ">                        
-                        <textarea 
-                                    class="form-control floating-label" 
-                                    rows="2" 
-                                    id="textArea"
-                                    placeholder="Add Message"
-                                    name="content"
-                                    ng-model="message.content"></textarea>
-
-                    </div> -->
+               <!-- CONTENT  -->                    
                <div class="form-group col-xs-10">
                   <br />
-                  <textarea rows="3" cols="50" class="form-control floating-label" id="focusedInput" placeholder="Add Message" ng-model="message.content" maxlength="{{maxlength}}">
+                  <textarea 
+                              rows="3" 
+                              cols="50" 
+                              class="form-control floating-label" 
+                              id="focusedInput" 
+                              placeholder="Add Message" 
+                              ng-model="message.content" 
+                              maxlength="{{maxlength}}"
+                              required>
                   </textarea>
                   <span class="help-block">{{maxlength - message.content.length}}</span>
                </div>
@@ -46,7 +44,8 @@
                      <button 
                               type="submit" 
                               class="btn btn-primary btn-fab btn-raised mdi-content-add" 
-                              ng-click="addMessage({message: message.content, userId: currentUser.id})"></button>
+                              ng-click="addMessage({message: message.content, userId: currentUser.id})"
+                              ng-disabled="submitionForm.$invalid"></button>
                   </div>
                </div>
             </fieldset>

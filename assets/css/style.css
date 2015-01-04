@@ -1,7 +1,8 @@
 
 /* GENERAL */
 body {
-	background-color: #CFD8DC !important	;
+	background-image: url('http://gillchristian.com/social/assets/img/background/background.png') !important;
+	background-attachment: fixed;
 }
 
 .content {
