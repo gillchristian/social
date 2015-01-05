@@ -12,5 +12,10 @@ angular.module('socialApp.controllers')
          $scope.logout = function() {
             $scope.services.logout();
          }
+         
+         $scope.isActive = function (state) {
+            return $state.includes(state);
+         }
+
       }
    ]);
